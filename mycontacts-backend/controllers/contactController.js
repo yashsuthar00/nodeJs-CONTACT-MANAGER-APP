@@ -2,7 +2,7 @@
 // @route GET /api/contacts
 // @access public
 
-const getContacts = (req, res) => {
+const getContacts = async(req, res) => {
     res.status(200).json({"message": "Get all contacts"})
 }
 
@@ -14,7 +14,8 @@ const createContact = (req, res) => {
     console.log("the request body is: ", req.body)
     const {name, email, phone } = req.body;
     if (!name || !email || !phone) {
-        return res.status(400).json({"message": "Please enter all fields"})
+        res.status(400);
+        throw new Error("Please fill in all fields");
     }
     res.status(201).json({"message": "Create Contact"})
 }
@@ -32,7 +33,7 @@ const getContact = (req, res) => {
 // @access public
 
 const updateContact = (req, res) => {
-    res.status(200).json({"message": `Update Contact for ${req.params.id}}`})
+    res.status(200).json({"message": `Update Contact for ${req.params.id}`})
 }
 
 // @desc Delete contacts
@@ -40,7 +41,7 @@ const updateContact = (req, res) => {
 // @access public
 
 const deleteContact = (req, res) => {
-    res.status(200).json({"message": `Delete Contact for ${req.params.id}}`})
+    res.status(200).json({"message": `Delete Contact for ${req.params.id}`})
 }
 
 
