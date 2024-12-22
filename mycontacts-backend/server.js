@@ -1,15 +1,14 @@
 const express = require('express');
+const errorHandler = require('./middleware/errorHandler');
 const dotenv = require('dotenv').config();
 
 const app = express();
 
 const port = process.env.PORT || 5000;
 
-app.get('/', (req, res) => {
-    res.json({"message": "Hello from Express!"});
-    }
-);
-
+app.use(express.json());
+app.use("/api/contacts", require("./routes/contactRoutes"));
+app.use(errorHandler);
 
 
 
