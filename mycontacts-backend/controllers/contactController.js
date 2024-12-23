@@ -68,15 +68,14 @@ const updateContact = asyncHandler(async (req, res) => {
 // @access public
 
 const deleteContact = asyncHandler(async (req, res) => {
-    const contact = await Contact.findById(req.params.id)
+    const contact = await Contact.findById(req.params.id);
     if(!contact){
         res.status(400);
         throw new Error("Contact not found")
     }
-    await Contact.remove();
+    await contact.deleteOne();
     res.status(200).json(contact);
-}
-)
+});
 
 
 module.exports = {getContacts, createContact, getContact, updateContact, deleteContact}
