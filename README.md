@@ -41,8 +41,8 @@ A Node.js-based backend application designed to manage contact information effic
 - Add the following keys:
     ```makefile
     PORT=5000
-    MONGO_URI=your-mongodb-connection-string
-    JWT_SECRET=your-jwt-secret
+    CONNECTION_STRING=your-mongodb-connection-string
+    ACCESS_TOKEN_SECRET=your-jwt-secret
 
 4. Start the server:
 
