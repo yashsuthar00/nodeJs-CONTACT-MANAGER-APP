@@ -37,7 +37,7 @@ A Node.js-based backend application designed to manage contact information effic
 
 3. Set up environment variables:
 
-- Create a .env file in the root directory.
+- Create a `.env` file in the root directory.
 - Add the following keys:
     ```makefile
     PORT=5000
@@ -48,3 +48,22 @@ A Node.js-based backend application designed to manage contact information effic
 
     ```
     npm start
+
+5. Access the application:
+
+- Base URL: `http://localhost:5000`
+
+## API Endpoints
+
+### Authentication Routes
+
+- **POST /api/users/register**: Register a new user.
+- **POST /api/users/login**: Authenticate a user and return a JWT.
+- **GET /api/users/current**: Shows the current authenticated user.
+### Contact Routes
+
+- **GET /api/contacts**: Get all contacts (protected).
+- **POST /api/contacts**: Add a new contact (protected).
+- **GET /api/contacts/:id**: Get a single contact by ID (protected).
+- **PUT /api/contacts/:id**: Update a contact by ID (protected).
+- **DELETE /api/contacts/:id**: Delete a contact by ID (protected).
